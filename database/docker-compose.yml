@@ -1,7 +1,7 @@
 version: '3.1'
 
 services:
-  postgres:
+  finctrl-db:
     image: postgres
     ports:
       - "5465:5432"
