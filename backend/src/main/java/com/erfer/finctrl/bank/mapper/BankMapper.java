@@ -6,16 +6,16 @@ import com.erfer.model.Bank;
 public class BankMapper {
 
 	public static BankDto toDto(Bank bank) {
-		BankDto bankDto = new BankDto();
-		bankDto.setId(bank.getId());
-		bankDto.setName(bank.getName());
-		return bankDto;
+		return BankDto.builder()
+				.id(bank.getId())
+				.name(bank.getName())
+				.build();
 	}
 
 	public static Bank toEntity(BankDto bankDto) {
-		Bank bank = new Bank();
-		bank.setId(bankDto.getId());
-		bank.setName(bankDto.getName());
-		return bank;
+		return Bank.builder()
+				.id(bankDto.getId())
+				.name(bankDto.getName())
+				.build();
 	}
 }

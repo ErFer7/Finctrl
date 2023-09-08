@@ -1,5 +1,6 @@
 package com.erfer.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import jakarta.persistence.Column;
@@ -11,6 +12,7 @@ import jakarta.persistence.Table;
 
 @Data
 @Entity
+@Builder
 @Table(name = "TB_CATEGORY")
 public class Category {
 
