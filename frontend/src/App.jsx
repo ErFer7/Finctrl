@@ -1,7 +1,11 @@
+import Home from "./view/Home";
+
 export default function App() {
   return (
     <>
-      <div>Hello World</div>
+      <body className="background">
+        <Home />
+      </body>
     </>
   );
 }

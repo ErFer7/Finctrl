@@ -1,5 +1,8 @@
 package com.erfer.finctrl.financialaccount.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +24,10 @@ public class FinancialAccountService {
 	public void saveFinancialAccount(FinancialAccountDto financialAccountDto) {
 		FinancialAccount financialAccount = FinancialAccountMapper.toEntity(financialAccountDto);
 		this.financialAccountRepository.save(financialAccount);
+	}
+
+	public List<FinancialAccountDto> loadAllFinancialAccounts() {
+		List<FinancialAccount> financialAccounts = this.financialAccountRepository.findAll();
+		return financialAccounts.stream().map(FinancialAccountMapper::toDto).collect(Collectors.toList());
 	}
 }

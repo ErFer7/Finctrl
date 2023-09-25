@@ -22,9 +22,15 @@ public class FinancialAccountController {
 	@Autowired private FinancialAccountService financialAccountService;
 
 	@GetMapping("/{financialAccountId}")
-	public ResponseEntity<FinancialAccountDto> showFinancialAccount(Long financialAccountId) {
+	public ResponseEntity<FinancialAccountDto> loadFinancialAccount(Long financialAccountId) {
 		FinancialAccountDto financialAccountDto = this.financialAccountService.loadFinancialAccountById(financialAccountId);
 		return ResponseEntity.ok(financialAccountDto);
+	}
+
+	@GetMapping("/all")
+	public ResponseEntity<Iterable<FinancialAccountDto>> loadAllFinancialAccounts() {
+		Iterable<FinancialAccountDto> financialAccountDtos = this.financialAccountService.loadAllFinancialAccounts();
+		return ResponseEntity.ok(financialAccountDtos);
 	}
 
 	@PostMapping("/save")

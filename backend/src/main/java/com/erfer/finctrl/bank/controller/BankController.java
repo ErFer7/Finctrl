@@ -23,7 +23,7 @@ public class BankController {
 	@Autowired private BankService bankService;
 
 	@GetMapping("/{bankId}")
-	public ResponseEntity<BankDto> showBank(@PathVariable Long bankId) {
+	public ResponseEntity<BankDto> loadBank(@PathVariable Long bankId) {
 		BankDto bankDto = this.bankService.loadBankById(bankId);
 		return ResponseEntity.ok(bankDto);
 	}

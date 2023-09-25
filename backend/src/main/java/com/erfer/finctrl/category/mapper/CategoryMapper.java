@@ -13,9 +13,11 @@ public class CategoryMapper {
 	}
 
 	public static Category toEntity(CategoryDto categoryDto) {
-		return Category.builder()
-				.id(categoryDto.getId())
-				.name(categoryDto.getName())
-				.build();
+		Category category = new Category();
+
+		category.setId(categoryDto.getId());
+		category.setName(categoryDto.getName());
+
+		return category;
 	}
 }

@@ -22,7 +22,7 @@ public class CategoryController {
 	@Autowired private CategoryService categoryService;
 
 	@GetMapping("/{categoryId}")
-	public ResponseEntity<CategoryDto> showCategory(Long categoryId) {
+	public ResponseEntity<CategoryDto> loadCategory(Long categoryId) {
 		CategoryDto categoryDto = this.categoryService.loadCategoryById(categoryId);
 		return ResponseEntity.ok(categoryDto);
 	}

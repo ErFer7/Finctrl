@@ -15,11 +15,13 @@ public class FinancialAccountMapper {
 	}
 
 	public static FinancialAccount toEntity(FinancialAccountDto financialAccountDto) {
-		return FinancialAccount.builder()
-				.id(financialAccountDto.getId())
-				.name(financialAccountDto.getName())
-				.value(financialAccountDto.getValue())
-				.bankId(financialAccountDto.getBankId())
-				.build();
+		FinancialAccount financialAccount = new FinancialAccount();
+
+		financialAccount.setId(financialAccountDto.getId());
+		financialAccount.setName(financialAccountDto.getName());
+		financialAccount.setValue(financialAccountDto.getValue());
+		financialAccount.setBankId(financialAccountDto.getBankId());
+
+		return financialAccount;
 	}
 }

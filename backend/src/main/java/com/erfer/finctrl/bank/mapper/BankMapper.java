@@ -13,9 +13,11 @@ public class BankMapper {
 	}
 
 	public static Bank toEntity(BankDto bankDto) {
-		return Bank.builder()
-				.id(bankDto.getId())
-				.name(bankDto.getName())
-				.build();
+		Bank bank = new Bank();
+
+		bank.setId(bankDto.getId());
+		bank.setName(bankDto.getName());
+
+		return bank;
 	}
 }

@@ -17,13 +17,15 @@ public class RegisterMapper {
 	}
 
 	public static Register toEntity(RegisterDto registerDto) {
-		return Register.builder()
-				.id(registerDto.getId())
-				.name(registerDto.getName())
-				.date(registerDto.getDate())
-				.financialAccountId(registerDto.getFinancialAccountId())
-				.categoryId(registerDto.getCategoryId())
-				.value(registerDto.getValue())
-				.build();
+		Register register = new Register();
+
+		register.setId(registerDto.getId());
+		register.setName(registerDto.getName());
+		register.setDate(registerDto.getDate());
+		register.setFinancialAccountId(registerDto.getFinancialAccountId());
+		register.setCategoryId(registerDto.getCategoryId());
+		register.setValue(registerDto.getValue());
+
+		return register;
 	}
 }
