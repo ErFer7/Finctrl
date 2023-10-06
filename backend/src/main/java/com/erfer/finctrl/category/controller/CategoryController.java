@@ -23,7 +23,7 @@ public class CategoryController {
 
 	@GetMapping("/{categoryId}")
 	public ResponseEntity<CategoryDto> loadCategory(Long categoryId) {
-		CategoryDto categoryDto = this.categoryService.loadCategoryById(categoryId);
+		CategoryDto categoryDto = this.categoryService.loadCategory(categoryId);
 		return ResponseEntity.ok(categoryDto);
 	}
 

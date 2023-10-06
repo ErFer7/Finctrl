@@ -13,7 +13,7 @@ public class BankService {
 
 	@Autowired private BankRepository bankRepository;
 
-	public BankDto loadBankById(Long id) {
+	public BankDto loadBank(Long id) {
 		Bank bank = this.bankRepository.getReferenceById(id);
 		return BankMapper.toDto(bank);
 	}

@@ -3,6 +3,7 @@ package com.erfer.finctrl.financialaccount.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +24,7 @@ public class FinancialAccountController {
 
 	@GetMapping("/{financialAccountId}")
 	public ResponseEntity<FinancialAccountDto> loadFinancialAccount(Long financialAccountId) {
-		FinancialAccountDto financialAccountDto = this.financialAccountService.loadFinancialAccountById(financialAccountId);
+		FinancialAccountDto financialAccountDto = this.financialAccountService.loadFinancialAccount(financialAccountId);
 		return ResponseEntity.ok(financialAccountDto);
 	}
 
@@ -37,5 +38,10 @@ public class FinancialAccountController {
 	public void saveFinancialAccount(@RequestBody FinancialAccount financialAccount) {
 		FinancialAccountDto financialAccountDto = FinancialAccountMapper.toDto(financialAccount);
 		this.financialAccountService.saveFinancialAccount(financialAccountDto);
+	}
+
+	@DeleteMapping("/delete")
+	public void deleteFinancialAccount(Long financialAccountId) {
+		this.financialAccountService.deleteFinancialAccount(financialAccountId);
 	}
 }

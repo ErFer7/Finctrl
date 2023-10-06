@@ -13,7 +13,7 @@ public class CategoryService {
 
 	@Autowired private CategoryRepository categoryRepository;
 
-	public CategoryDto loadCategoryById(Long id) {
+	public CategoryDto loadCategory(Long id) {
 		Category category = this.categoryRepository.getReferenceById(id);
 		return CategoryMapper.toDto(category);
 	}

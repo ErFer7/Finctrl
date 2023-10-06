@@ -1,6 +1,6 @@
-import FinancialAccountsTable from '../components/FinancialAccountsTable';
-import '../styles/default.css';
-import '../styles/utilities.css';
+import FinancialAccountsTable from '../components/financial-account/FinancialAccountsTable'
+import '../styles/default.css'
+import '../styles/utilities.css'
 
 export default function Home() {
   return (

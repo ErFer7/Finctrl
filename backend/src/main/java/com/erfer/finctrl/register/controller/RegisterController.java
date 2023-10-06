@@ -23,7 +23,7 @@ public class RegisterController {
 
 	@GetMapping("/{register}")
 	public ResponseEntity<RegisterDto> loadRegister(Long registerId) {
-		RegisterDto registerDto = this.registerService.loadRegisterById(registerId);
+		RegisterDto registerDto = this.registerService.loadRegister(registerId);
 		return ResponseEntity.ok(registerDto);
 	}
 

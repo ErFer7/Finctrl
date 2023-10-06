@@ -13,7 +13,7 @@ public class RegisterService {
 
 	@Autowired private RegisterRepository registerRepository;
 
-	public RegisterDto loadRegisterById(Long id) {
+	public RegisterDto loadRegister(Long id) {
 		Register register = this.registerRepository.getReferenceById(id);
 		return RegisterMapper.toDto(register);
 	}

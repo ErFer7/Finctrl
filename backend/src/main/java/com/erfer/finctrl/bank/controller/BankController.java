@@ -24,7 +24,7 @@ public class BankController {
 
 	@GetMapping("/{bankId}")
 	public ResponseEntity<BankDto> loadBank(@PathVariable Long bankId) {
-		BankDto bankDto = this.bankService.loadBankById(bankId);
+		BankDto bankDto = this.bankService.loadBank(bankId);
 		return ResponseEntity.ok(bankDto);
 	}
 
