@@ -24,7 +24,6 @@ export default function FinancialAccountsTable() {
   function updateFinancialAccount(financialAccount) {
     const id = financialAccount.id
     if (financialAccounts[id] !== financialAccount) {
-      console.log('SAVE')
       saveFinancialAccount(financialAccount).catch((error) => {
         console.log(error)
       })

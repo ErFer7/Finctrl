@@ -17,3 +17,8 @@
   border-radius: 10px;
   padding: 10px;
 }
+
+.inline {
+  display: inline-flex;
+  gap: 5px;
+}

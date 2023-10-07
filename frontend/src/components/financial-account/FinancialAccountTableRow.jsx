@@ -24,17 +24,19 @@ export default function FinancialAccountTableRow(props) {
         <input
           type="text"
           value={localFinancialAccount.name}
+          placeholder='Nome da conta'
           onBlur={() => {
             updateFinancialAccount(localFinancialAccount)
           }}
           onChange={(event) => setLocalFinancialAccount({ ...localFinancialAccount, name: event.target.value })}
         />
       </td>
-      <td>
+      <td className='inline'>
         R¢
         <input
           type="number"
           value={localFinancialAccount.value}
+          placeholder='0'
           onBlur={() => {
             updateFinancialAccount(localFinancialAccount)
           }}
