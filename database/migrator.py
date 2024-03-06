@@ -2,17 +2,18 @@
 Migra o banco de dados para a versão mais recente.
 '''
 
-from sqlite3 import connect
+from argparse import ArgumentParser
 from os.path import join, exists
 from os import listdir
+from sqlite3 import connect
 
 
-def migrate() -> None:
+def migrate(database_name: str) -> None:
     '''
     Migra o banco.
     '''
 
-    with connect('finctrl.sqlite') as database:
+    with connect(database_name) as database:
         cursor = database.cursor()
         cursor.execute('PRAGMA user_version;')
         current_version = cursor.fetchone()[0]
@@ -21,8 +22,7 @@ def migrate() -> None:
 
         migrations = listdir('migrations')
         migrations = map(lambda migration: int(migration[1:]), migrations)
-        migrations = list(filter(lambda migration: migration > current_version, migrations))
-        migrations.sort()
+        migrations = sorted(filter(lambda migration: migration > current_version, migrations))
 
         if len(migrations) == 0:
             print('Database is already up to date.')
@@ -53,4 +53,8 @@ def migrate() -> None:
 
 
 if __name__ == '__main__':
-    migrate()
+    parser = ArgumentParser(description='Migrate the database to the latest version.')
+    parser.add_argument('--db', default='finctrl.sqlite', help='The name of the database to migrate.')
+    args = parser.parse_args()
+
+    migrate(args.db)

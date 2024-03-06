@@ -2,9 +2,8 @@
 Módulo do controller do banco.
 '''
 
-# Infelizmente, o pylint não consegue reconhecer a importação de módulos
 # pylint: disable=import-error
-
+from source.managers.database_manager import DatabaseManager
 from source.bank.service.bank_service import BankService
 
 
@@ -16,5 +15,5 @@ class BankController():
 
     _bank_service: BankService
 
-    def __init__(self) -> None:
-        self._bank_service = BankService()
+    def __init__(self, database_manager: DatabaseManager) -> None:
+        self._bank_service = BankService(database_manager)
