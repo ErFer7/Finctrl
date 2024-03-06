@@ -22,6 +22,7 @@ CREATE TABLE Bank (
 CREATE TABLE Account (
     Id INTEGER PRIMARY KEY,
     BankId INT NOT NULL,
-    Amount INT NOT NULL,
+    `Name` VARCHAR(255) NOT NULL,
+    Balance INT NOT NULL,
     FOREIGN KEY (BankId) REFERENCES Bank(Id)
 );

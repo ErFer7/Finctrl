@@ -2,11 +2,11 @@
 Backend do Finctrl.
 '''
 
+from os import getcwd
+from os.path import join
 from signal import SIGINT, SIGTERM
 from gevent import signal_handler
 from zerorpc import Server
-from os import getcwd
-from os.path import join
 
 # pylint: disable=import-error
 from source.managers.database_manager import DatabaseManager

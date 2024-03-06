@@ -110,4 +110,3 @@ def test_delete_bank(database_manager: DatabaseManager, bank_repository: BankRep
 
     cursor.execute('SELECT name FROM bank WHERE id = 1;')
     assert cursor.fetchone() is None
-
